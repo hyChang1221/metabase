@@ -1,6 +1,7 @@
 ## 一. 准备工作
 
 - 安装并启动Docker
+- 克隆项目到本地 `git clone URL`
 
 参考资料: 
 
@@ -11,10 +12,16 @@
 1. 切换至 `docker-compose.yml` 文件所在目录
 2. 执行 `docker-compose up -d`
 
+__建议自定义修改参数__
+
+- services/mysql/environment/MYSQL_ROOT_PASSWORD
+- services/mysql/environment/MYSQL_PASSWORD
+- services/metabase/environment/MB_DB_PASS
+
 __MacOS__
 
 ```sh
-cd ./metabase/
+cd metabase
 docker-compose up -d
 ```
 
@@ -28,9 +35,7 @@ __Windows__
 
 
 ```bash
-# 文件夹所在盘符(例如C:、D:)
-E:
-cd \metabase
+cd metabase
 mkdir \metabase-data
 mkdir \mysql\data
 mkdir \mysql\conf.d
@@ -39,12 +44,6 @@ docker-compose up -d
 ```
 
 ## docker-compose.yml
-
-__建议自定义修改参数__
-
-- services/mysql/environment/MYSQL_ROOT_PASSWORD
-- services/mysql/environment/MYSQL_PASSWORD
-- services/metabase/environment/MB_DB_PASS
 
 ```properties
 # 数据库大小写不敏感，用于解决Metabase初始化时脚本与表名大小写不一致的问题
