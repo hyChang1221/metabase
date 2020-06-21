@@ -9,14 +9,16 @@
 
 ## 二. 安装方式
 
-1. 切换至 `docker-compose.yml` 文件所在目录
-2. 执行 `docker-compose up -d`
+1. 根据系统选择运行文件
+ - Mac -> `setup.sh`
+ - Windows -> `setup.bat`
 
 __建议自定义修改参数__
 
 - services/mysql/environment/MYSQL_ROOT_PASSWORD
 - services/mysql/environment/MYSQL_PASSWORD
 - services/metabase/environment/MB_DB_PASS
+- services/metabase/environment/JAVA_TIMEZONE
 
 __MacOS__
 
@@ -36,9 +38,9 @@ __Windows__
 
 ```bash
 cd metabase
-mkdir \metabase-data
-mkdir \mysql\data
-mkdir \mysql\conf.d
+mkdir metabase-data
+mkdir mysql\data
+mkdir mysql\conf.d
 
 docker-compose up -d
 ```
