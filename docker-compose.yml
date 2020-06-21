@@ -1,0 +1,41 @@
+version: "3"
+services:
+  metabase:
+    image: metabase/metabase:latest
+    container_name: metabase
+    ports:
+      - "13000:3000"
+    restart: always
+    volumes:
+      - "${DIR_MB}:/metabase-data"
+    depends_on:
+      - mysql
+    environment:
+      JAVA_TIMEZONE: Asia/Shanghai
+      MB_DB_TYPE: mysql
+      MB_DB_DBNAME: metabase
+      MB_DB_HOST: mysql
+      MB_DB_PORT: 3306
+      MB_DB_USER: metabase
+      MB_DB_PASS: metabasePass
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    ports:
+      - "13306:3306"
+    restart: always
+    volumes:
+      - "${DIR_MYSQL}/data:/var/lib/mysql"
+      - "${DIR_MYSQL}/conf.d:/etc/mysql/conf.d"
+    command: [
+      "--character-set-server=utf8mb4",
+      "--collation-server=utf8mb4_unicode_ci",
+      "--default-time-zone=+8:00",
+      "--lower-case-table-names=1",
+      "--default-authentication-plugin=mysql_native_password"
+    ]
+    environment:
+      MYSQL_ROOT_PASSWORD: mysqlRootPassword.
+      MYSQL_DATABASE: metabase
+      MYSQL_USER: metabase
+      MYSQL_PASSWORD: metabasePass
