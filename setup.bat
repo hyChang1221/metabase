@@ -10,24 +10,24 @@ if not exist "metabase-data" (
   mkdir metabase-data
   echo INFO_INIT_FOLDER metabase-data
 ) else (
-  echo ERROR_FOLDER_IS_EXIST metabase-data
+  echo WARRING_FOLDER_IS_EXIST metabase-data
 )
 
 @rem 初始化创建 mysql目录
 if not exist "mysql\data" (
-	echo ERROR_FOLDER_NOT_FOUND mysql\data
+  echo ERROR_FOLDER_NOT_FOUND mysql\data
   mkdir mysql\data
   echo INFO_INIT_FOLDER mysql\data
 ) else (
-  echo ERROR_FOLDER_IS_EXIST mysql\data
+  echo WARRING_FOLDER_IS_EXIST mysql\data
 )
 
 if not exist "mysql\conf.d" (
-	echo ERROR_FOLDER_NOT_FOUND mysql\conf.d
+  echo ERROR_FOLDER_NOT_FOUND mysql\conf.d
   mkdir mysql\conf.d
   echo INFO_INIT_FOLDER mysql\conf.d
 ) else (
-  echo ERROR_FOLDER_IS_EXIST mysql\conf.d
+  echo WARRING_FOLDER_IS_EXIST mysql\conf.d
 )
 
 @rem 创建服务
