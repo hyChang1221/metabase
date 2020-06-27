@@ -7,7 +7,7 @@
 
 ## 二. 安装方式
 
-__安全前建议修改相关参数__
+__安装前建议修改相关参数__
 
 - services/mysql/environment/MYSQL_ROOT_PASSWORD
 - services/mysql/environment/MYSQL_PASSWORD
